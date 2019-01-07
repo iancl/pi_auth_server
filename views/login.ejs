@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <style type="text/css">
+    div, section, p, a {
+      margin: 0;
+      padding: 0;
+    }
+    #content {
+      margin: 0 auto;
+      position: relative;
+      width: 600px;
+      min-height: 300px;
+      border: 1px solid black;
+      padding: 20px;
+    }
+
+    label {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <section id="content">
+    <h1>LOGIN:</h1>
+    <div>
+        <form id="form" action="/login" method="POST">
+            <label for="email">
+                Email:
+                <input
+                  type="email"
+                  name="email"
+                >
+              </label>
+              <label for="password">
+                Password:
+                <input
+                  type="password"
+                  name="password"
+                >
+              </label>
+              <input type="submit" id="submit"></input>
+        </form>
+        <div id="err-container"></div>
+        <a href="/signup">Don't have an account yet?</a>
+    </div>
+  </section>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('err')) {
+      document.querySelector('#err-container')
+        .innerHTML = '<p>Username and password do not match</p>'
+    }
+  </script>
+</body>
+</html>

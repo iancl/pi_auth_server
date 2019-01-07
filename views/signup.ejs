@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <style type="text/css">
+    div, section, p, a {
+      margin: 0;
+      padding: 0;
+    }
+    #content {
+      margin: 0 auto;
+      position: relative;
+      width: 600px;
+      min-height: 300px;
+      border: 1px solid black;
+      padding: 20px;
+    }
+
+    label {
+      margin-left: 10px;
+      float: left;
+      clear: both;
+    }
+    .clear {
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <section id="content">
+    <h1>SIGNUP</h1>
+    <form action="/signup" method="post">
+      <label for="email">
+          firstName:
+          <input
+            type="text"
+            name="fname"
+          >
+        </label>
+        <label for="email">
+            lastname:
+            <input
+              type="text"
+              name="last"
+            >
+          </label>
+      <label for="email">
+          Email:
+          <input
+            type="email"
+            name="email"
+          >
+        </label>
+        <label for="password">
+          Password:
+          <input
+            type="password"
+            name="password"
+          >
+        </label>
+        <div class="clear"></div>
+        <input type="submit" id="submit"></input></form>
+      </form>
+      <div class="clear"></div>
+      <div id="err-container"></div>
+      <a href="/login">already have an account?</a>
+  </section>
+  <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('err')) {
+        document.querySelector('#err-container')
+          .innerHTML = 'failed validation'
+      }
+    </script>
+</body>
+</html>
